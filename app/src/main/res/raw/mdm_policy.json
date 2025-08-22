@@ -1,0 +1,10 @@
+{
+  "wifiDirect": {
+    "enabled": true,
+    "discoveryBackoffSeconds": [1, 2, 4, 8, 16]
+  },
+  "dataChannel": {
+    "heartbeatIntervalSec": 5,
+    "maxMisses": 3
+  }
+}

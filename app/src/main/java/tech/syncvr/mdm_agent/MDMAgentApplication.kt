@@ -45,6 +45,7 @@ import tech.syncvr.mdm_agent.disk_space.DiskSpaceUtil.getAvailableDiskSpace
 import tech.syncvr.mdm_agent.firebase.IAuthenticationService
 import tech.syncvr.mdm_agent.logging.AnalyticsLogger
 import tech.syncvr.mdm_agent.logging.UploadLogEntriesWorker
+import tech.syncvr.mdm_agent.policy.receiver.PolicySyncScheduler
 import tech.syncvr.mdm_agent.receivers.DeviceOwnerReceiver
 import tech.syncvr.mdm_agent.receivers.PackageInstallerSessionStatusReceiver
 import tech.syncvr.mdm_agent.repositories.DeviceInfoRepository
@@ -129,6 +130,7 @@ class MDMAgentApplication : Application(), Configuration.Provider {
         devicePolicyManager = getSystemService(DevicePolicyManager::class.java)
         bluetoothManager = getSystemService(BluetoothManager::class.java)
         deviceOwnerComponent = ComponentName(this, DeviceOwnerReceiver::class.java)
+        PolicySyncScheduler.schedule(this)
 
         if (devicePolicyManager.isDeviceOwnerApp(packageName)) {
             runBlocking {
