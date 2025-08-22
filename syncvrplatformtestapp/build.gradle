@@ -18,8 +18,12 @@ android {
         applicationId "tech.syncvr.syncvrplatformtestapp"
         minSdk 27
         targetSdk 33
-        versionCode androidGitVersion.code()
-        versionName androidGitVersion.name()
+        // build version was changed with hardcoded
+//        versionCode androidGitVersion.code()
+//        versionName androidGitVersion.name()
+        versionCode = 1
+        versionName = "1.0"
+        buildConfigField("boolean", "ASSESSMENT_MODE", "true")
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }

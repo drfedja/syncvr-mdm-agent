@@ -27,8 +27,12 @@ android {
         minSdkVersion 27
         //noinspection ExpiredTargetSdkVersion
         targetSdkVersion 31
-        versionCode androidGitVersion.code()
-        versionName androidGitVersion.name()
+//        versionCode androidGitVersion.code()
+//        versionName androidGitVersion.name()
+        versionCode = 1
+        versionName = "1.0"
+        buildConfigField("boolean", "ASSESSMENT_MODE", "true")
+
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
